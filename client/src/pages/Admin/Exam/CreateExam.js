@@ -18,6 +18,8 @@ import {
 } from "react-icons/fa";
 import classes from "./CreateExam.module.css";
 
+const API_BASE_URL = process.env.REACT_APP_BACKEND_API_URL;
+
 const CreateExam = () => {
   const [isCreateModalOpen, setCreateModalOpen] = useState(false);
   const [assignExamId, setAssignExamId] = useState(null);
@@ -79,7 +81,7 @@ const CreateExam = () => {
   useEffect(() => {
     const fetchNotAssignedExams = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/exams/notassigned");
+        const response = await axios.get(`${API_BASE_URL}/api/exams/notassigned`);
         setNotAssignedExams(response.data || []);
       } catch (error) {
         setNotAssignedExams([]);
@@ -523,7 +525,7 @@ const CreateExam = () => {
                       <div className={classes.actionRow}>
                         <div className={classes.actionButtons}>
                           <a
-                            href={`http://localhost:5000/api/exams/${entry.exam_id}/student-list`}
+                            href={`${API_BASE_URL}/api/exams/${entry.exam_id}/student-list`}
                             download
                             className={`${classes.actionButton} ${classes.btnBlue}`}
                           >
@@ -531,7 +533,7 @@ const CreateExam = () => {
                           </a>
                           
                           <a
-                            href={`http://localhost:5000/api/exams/${entry.exam_id}/${entry.exam_name}/download-all-hall-tickets`}
+                            href={`${API_BASE_URL}/api/exams/${entry.exam_id}/${entry.exam_name}/download-all-hall-tickets`}
                             download
                             className={`${classes.actionButton} ${classes.btnYellow}`}
                           >

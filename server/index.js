@@ -7,7 +7,8 @@ const multer = require("multer");
 
 const pool = require("./config/db");
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
+const NODE_ENV = process.env.NODE_ENV || "development";
 
 // ────────────────────────────────
 // PATHS & DIRECTORIES
@@ -29,7 +30,19 @@ const uploadsDir = path.join(__dirname, "uploads");
 // ────────────────────────────────
 // MIDDLEWARE
 // ────────────────────────────────
-app.use(cors({ origin: "*" }));
+const allowedOrigins =
+  NODE_ENV === "production"
+    ? ["http://69.99.75.179"]
+    : ["http://localhost:3000", "http://127.0.0.1:3000"];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -184,5 +197,7 @@ app.use((req, res) => {
 // START SERVER
 // ────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(
+    `Server running in ${NODE_ENV.toUpperCase()} mode on http://localhost:${PORT}`
+  );
 });

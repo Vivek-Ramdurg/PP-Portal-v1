@@ -1,7 +1,10 @@
 node_modules
 npm-debug.log
-Dockerfile
-.dockerignore
+.env
+.env.development
+.env.production
+logs
+uploads
+Data
 .git
 .gitignore
-.env

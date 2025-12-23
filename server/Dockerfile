@@ -1,19 +1,24 @@
-FROM node:18
+# Use official Node.js LTS
+FROM node:18-alpine
 
-# Set working directory
+# Set working directory inside container
 WORKDIR /app
 
-# Copy dependency files
+# Copy dependency files first (better caching)
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install --production
+# Install only production dependencies
+RUN npm ci --only=production
 
-# Copy source code
+# Copy rest of the source code
 COPY . .
 
-# Expose backend port
-EXPOSE 5000
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=4000
 
-# Start app
+# Expose backend port
+EXPOSE 4000
+
+# Start the server
 CMD ["node", "index.js"]
