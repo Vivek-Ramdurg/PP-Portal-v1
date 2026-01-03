@@ -32,8 +32,9 @@ const uploadsDir = path.join(__dirname, "uploads");
 // ────────────────────────────────
 const allowedOrigins =
   NODE_ENV === "production"
-    ? ["http://69.99.75.179"]
-    : ["http://localhost:3000", "http://127.0.0.1:3000"];
+    ? [process.env.FRONTEND_URL]
+    : ["http://localhost:3000"];
+
 
 app.use(
   cors({
@@ -196,8 +197,9 @@ app.use((req, res) => {
 // ────────────────────────────────
 // START SERVER
 // ────────────────────────────────
-app.listen(PORT, () => {
+app.listen(PORT,  () => {
   console.log(
     `Server running in ${NODE_ENV.toUpperCase()} mode on http://localhost:${PORT}`
   );
 });
+
