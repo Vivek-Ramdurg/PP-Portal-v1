@@ -1,0 +1,8 @@
+{"timestamp":"2026-01-04T06:34:22.140Z","type":"ACTION","user_id":"10","user_name":"admin","role_name":"ADMIN","method":"GET","path":"/api/system-config/active","action":"GET /api/system-config/active","ip":"::1"}
+{"timestamp":"2026-01-04T06:34:22.444Z","type":"ACTION","user_id":"10","user_name":"admin","role_name":"ADMIN","method":"GET","path":"/api/system-config/active","action":"GET /api/system-config/active","ip":"::1"}
+{"timestamp":"2026-01-04T06:34:50.741Z","type":"LOGIN","user_name":"admin","status":"success_pre_auth","ip":"::1"}
+{"timestamp":"2026-01-04T06:34:53.001Z","type":"ACTION","user_name":"admin","role":"ADMIN","action":"login_complete","status":"success","ip":"::1"}
+{"timestamp":"2026-01-04T06:34:53.036Z","type":"ACTION","user_id":"10","user_name":"admin","role_name":"ADMIN","method":"GET","path":"/api/system-config/active","action":"GET /api/system-config/active","ip":"::1"}
+{"timestamp":"2026-01-04T06:34:53.057Z","type":"ACTION","user_id":"10","user_name":"admin","role_name":"ADMIN","method":"GET","path":"/api/system-config/active","action":"GET /api/system-config/active","ip":"::1"}
+{"timestamp":"2026-01-04T06:34:55.457Z","type":"ACTION","user_id":"10","user_name":"admin","role_name":"ADMIN","method":"GET","path":"/api/system-config/active","action":"GET /api/system-config/active","ip":"::1"}
+{"timestamp":"2026-01-04T06:34:55.481Z","type":"ACTION","user_id":"10","user_name":"admin","role_name":"ADMIN","method":"GET","path":"/api/system-config/active","action":"GET /api/system-config/active","ip":"::1"}
