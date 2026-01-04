@@ -57,6 +57,10 @@ app.use(
   "/Data", 
   express.static(dataDir)
 );
+app.use(
+  "/uploads",
+  express.static(path.join(__dirname, "uploads"))
+);
  
 app.use(
   "/uploads/profile_photos",
